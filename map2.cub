@@ -1,0 +1,18 @@
+NO textures/greybrickwall007x800.xpm
+SO textures/shingle.xpm
+WE textures/StoneFloorTexture.xpm
+EA textures/wood2.xpm
+
+
+F 220,100,255
+C 20,20,20
+
+
+
+111111111111
+111111
+110001111111
+110001S11
+110000011
+111111011
+000001111
