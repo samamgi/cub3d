@@ -14,15 +14,18 @@
 
 int	load_all_textures(t_game *game, t_map *map)
 {
+	int	error_code;
+
+	error_code = 0;
 	if (load_texture(game, map->path_north, &game->tex_north) == -1)
-		return (-1);
+		error_code = -1;
 	if (load_texture(game, map->path_south, &game->tex_south) == -1)
-		return (-1);
+		error_code = -1;
 	if (load_texture(game, map->path_east, &game->tex_east) == -1)
-		return (-1);
+		error_code = -1;
 	if (load_texture(game, map->path_west, &game->tex_west) == -1)
-		return (-1);
-	return (0);
+		error_code = -1;
+	return (error_code);
 }
 
 void	ray_side(t_ray *ray, t_game *game)

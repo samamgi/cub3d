@@ -53,6 +53,8 @@ int	load_texture(t_game *game, char *path, t_img *tex)
 			&tex->line_length);
 	if (!tex->img)
 		return (-1);
+	if (tex->bpp != tex->line_length)
+		return (write(2, "Error: invalid texture size\n", 29), -1);
 	tex->addr = mlx_get_data_addr(tex->img, &tex->bpp, &tex->line_length,
 			&tex->endian);
 	return (0);

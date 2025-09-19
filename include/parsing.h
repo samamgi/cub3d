@@ -6,7 +6,7 @@
 /*   By: arbaudou <arbaudou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 16:50:38 by arbaudou          #+#    #+#             */
-/*   Updated: 2025/09/11 16:54:20 by arbaudou         ###   ########.fr       */
+/*   Updated: 2025/09/17 17:08:44 by arbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ int		ft_max(int a, int b);
 void	ft_free_tab(char **tab);
 void	replace_f_with_zero(t_map *map);
 void	trim_newline_end(char *line);
+int		check_border(t_map *map, int row);
 
 #endif

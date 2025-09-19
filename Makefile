@@ -1,4 +1,4 @@
-NAME = cube_3d
+NAME = cube3D
 
 SRCDIR = src
 OBJDIR = obj
@@ -23,7 +23,7 @@ SRC = main.c \
 		utils/utils_raycasting.c \
 		event/keys.c \
 		event/move.c \
-		event/movement.c
+		event/movement.c \
 	 
 OBJ = $(SRC:.c=.o)
 SRC := $(addprefix $(SRCDIR)/, $(SRC))
@@ -108,8 +108,10 @@ $(MINILIBX_DIR):
 
 # Clean Rules
 clean:
-	$(V)echo $(RED)'[$(NAME)] Cleaning objects'd$(RESET)
+	$(V)echo $(RED)'[$(NAME)] Cleaning objects'$(RESET)
 	$(V)rm -rf $(OBJDIR)
+	$(V)$(MAKE) --silent -C $(LIBFT_DIR) clean
+	$(V)echo '[$(NAME)] Libft cleaned'
 
 fclean: clean
 	$(V)echo $(RED)'[$(NAME)] Cleaning all files'$(RESET)

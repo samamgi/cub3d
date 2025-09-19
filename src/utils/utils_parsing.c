@@ -6,7 +6,7 @@
 /*   By: arbaudou <arbaudou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 21:26:27 by arbaudou          #+#    #+#             */
-/*   Updated: 2025/09/11 16:49:55 by arbaudou         ###   ########.fr       */
+/*   Updated: 2025/09/17 17:08:29 by arbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,28 @@ void	trim_newline_end(char *line)
 
 	if (!line)
 		return ;
-	len = strlen(line);
+	len = ft_strlen(line);
 	if (len == 0)
 		return ;
 	if (line[len - 1] == '\n')
 		line[len - 1] = '\0';
+}
+
+int	check_border(t_map *map, int row)
+{
+	int	i;
+	int	j;
+
+	i = ft_strlen(map->clean_map[row - 1]);
+	j = ft_strlen(map->clean_map[row]);
+	if (i > j && row != 0)
+	{
+		while (map->clean_map[row - 1][j] != '\0')
+		{
+			if (map->clean_map[row - 1][j] == 'F')
+				return (-1);
+			j++;
+		}
+	}
+	return (0);
 }

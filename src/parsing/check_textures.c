@@ -6,7 +6,7 @@
 /*   By: arbaudou <arbaudou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 14:52:37 by arbaudou          #+#    #+#             */
-/*   Updated: 2025/09/11 16:50:11 by arbaudou         ###   ########.fr       */
+/*   Updated: 2025/09/17 17:06:16 by arbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,9 @@ int	check_valid_chars(t_map *map)
 		j = 0;
 		while (j < map->map_width)
 		{
-			if (map->clean_map[i][j] != '0' && map->clean_map[i][j] != '1'
-				&& map->clean_map[i][j] != ' ')
+			if (map->clean_map[i][j] == ' ')
+				map->clean_map[i][j] = '0';
+			if (map->clean_map[i][j] != '0' && map->clean_map[i][j] != '1')
 				return (write(2, "Error: Invalid character in map\n", 32), -1);
 			j++;
 		}

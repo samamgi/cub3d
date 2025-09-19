@@ -17,10 +17,10 @@ int	check_extension(const char *filename)
 	const char	*ext = ".cub";
 	size_t		len;
 
-	len = strlen(filename);
+	len = ft_strlen(filename);
 	if (len < 4)
 		return (0);
-	if (strcmp(filename + len - 4, ext) == 0)
+	if (ft_strcmp(filename + len - 4, ext) == 0)
 		return (1);
 	return (0);
 }

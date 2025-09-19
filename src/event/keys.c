@@ -14,15 +14,7 @@
 
 int	close_window(t_game *game)
 {
-	if (game->img.img)
-		mlx_destroy_image(game->mlx_ptr, game->img.img);
-	if (game->win_ptr)
-		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
-	if (game->mlx_ptr)
-	{
-		mlx_destroy_display(game->mlx_ptr);
-		free(game->mlx_ptr);
-	}
+	cleanup_engine(game);
 	free_struct(game->map);
 	free(game->map);
 	exit(0);

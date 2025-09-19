@@ -6,7 +6,7 @@
 /*   By: arbaudou <arbaudou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 14:36:48 by arbaudou          #+#    #+#             */
-/*   Updated: 2025/09/11 16:43:57 by arbaudou         ###   ########.fr       */
+/*   Updated: 2025/09/17 17:08:35 by arbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,9 @@ static int	check_filled_edges(t_map *map)
 		if (map->clean_map[i][0] == 'F' || map->clean_map[i][map->map_width
 			- 1] == 'F')
 			return (-1);
+		if (i > 0)
+			if (check_border(map, i) == -1)
+				return (-1);
 		i++;
 	}
 	return (0);

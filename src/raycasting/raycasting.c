@@ -105,8 +105,10 @@ int	start_engine(t_map *map)
 	mlx_hook(game.win_ptr, 2, 1L << 0, key_press, &game);
 	mlx_hook(game.win_ptr, 3, 1L << 1, key_release, &game);
 	mlx_hook(game.win_ptr, 17, 0, close_window, &game);
-	load_all_textures(&game, map);
+	if (load_all_textures(&game, map) == -1)
+		return (cleanup_engine(&game), -1);
 	mlx_loop_hook(game.mlx_ptr, game_loop, &game);
 	mlx_loop(game.mlx_ptr);
+	cleanup_engine(&game);
 	return (0);
 }

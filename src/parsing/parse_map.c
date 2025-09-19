@@ -6,7 +6,7 @@
 /*   By: arbaudou <arbaudou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 21:25:16 by arbaudou          #+#    #+#             */
-/*   Updated: 2025/09/04 10:27:39 by arbaudou         ###   ########.fr       */
+/*   Updated: 2025/09/17 17:04:36 by arbaudou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,14 @@ static char	*copy_clean_line(char *src, int width)
 	i = 0;
 	while (i < len)
 	{
+		if (src[i] == ' ')
+			src[i] = '0';
 		clean_line[i] = src[i];
 		i++;
 	}
 	while (i < width)
 	{
-		clean_line[i] = ' ';
+		clean_line[i] = '0';
 		i++;
 	}
 	clean_line[width] = '\0';

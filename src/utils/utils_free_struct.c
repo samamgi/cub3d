@@ -17,6 +17,14 @@ void	cleanup_engine(t_game *game)
 {
 	if (game->img.img)
 		mlx_destroy_image(game->mlx_ptr, game->img.img);
+	if (game->tex_north.img)
+		mlx_destroy_image(game->mlx_ptr, game->tex_north.img);
+	if (game->tex_south.img)
+		mlx_destroy_image(game->mlx_ptr, game->tex_south.img);
+	if (game->tex_east.img)
+		mlx_destroy_image(game->mlx_ptr, game->tex_east.img);
+	if (game->tex_west.img)
+		mlx_destroy_image(game->mlx_ptr, game->tex_west.img);
 	if (game->win_ptr)
 		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	if (game->mlx_ptr)
