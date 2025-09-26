@@ -60,7 +60,7 @@ void	calc_wall(t_ray *ray, t_game *game)
 	if (ray->draw_start < 0)
 		ray->draw_start = 0;
 	if (ray->draw_end >= WIN_HEIGHT)
-		ray->draw_end = WIN_HEIGHT - 1;
+		ray->draw_end = WIN_HEIGHT;
 	ray_side(ray, game);
 }
 

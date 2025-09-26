@@ -45,28 +45,29 @@ static int	find_player(t_map *map, int *x, int *y)
 {
 	int	i;
 	int	j;
+	int	count;
 
-	i = 0;
-	while (i < map->map_height)
+	i = ((count = 0) - 1);
+	while (++i < map->map_height)
 	{
-		j = 0;
-		while (j < map->map_width)
+		j = -1;
+		while (++j < map->map_width)
 		{
 			if (map->clean_map[i][j] == 'N' || map->clean_map[i][j] == 'S'
 				|| map->clean_map[i][j] == 'E' || map->clean_map[i][j] == 'W')
 			{
 				starting_orientation(map, map->clean_map[i][j]);
+				count++;
 				*x = j;
 				*y = i;
 				map->start_x = j;
 				map->start_y = i;
-				return (0);
 			}
-			j++;
 		}
-		i++;
 	}
-	return (-1);
+	if (count != 1)
+		return (-1);
+	return (0);
 }
 
 static int	check_filled_edges(t_map *map)
